@@ -12,17 +12,26 @@ namespace Challenge1Tests
         [TestMethod]
         public void SetPropertiesNumber_ShouldgetCorrectNumber()
         {
-
             int expected = menuItem1.MealNumber;
             int actual = 1;
 
             Assert.AreEqual(expected, actual);
-
         }
         [TestMethod]
-        public void MyTestMethod()
+        public void SetPropertyName_ShouldGetCorrectName()
         {
+            string expected = "Chicken Parmesan";
+            string actual = menuItem1.Name;
 
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void SetPropertyPrice_ShouldGetCorrectPrice()
+        {
+            decimal expected = 23.20m;
+            decimal actual = menuItem1.Price;
+
+            Assert.AreEqual(expected, actual);
         }
     }
 }
