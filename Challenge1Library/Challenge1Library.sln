@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Challenge1Library", "Challe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Challenge1Tests", "..\Challenge1Tests\Challenge1Tests.csproj", "{7FE35DFA-BFB2-4AE6-BE77-6AC9A92BF3E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Challenge1Console", "..\Challenge1Console\Challenge1Console.csproj", "{6D283851-F6CB-439E-92D1-E0DF917C4034}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7FE35DFA-BFB2-4AE6-BE77-6AC9A92BF3E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FE35DFA-BFB2-4AE6-BE77-6AC9A92BF3E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FE35DFA-BFB2-4AE6-BE77-6AC9A92BF3E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D283851-F6CB-439E-92D1-E0DF917C4034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D283851-F6CB-439E-92D1-E0DF917C4034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D283851-F6CB-439E-92D1-E0DF917C4034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D283851-F6CB-439E-92D1-E0DF917C4034}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
