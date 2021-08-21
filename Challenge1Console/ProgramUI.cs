@@ -47,7 +47,7 @@ namespace Challenge1Console
                     case string f when f.Contains("3"):
                     case string g when g.Contains("delete"):
                     case string h when h.Contains("remove"):
-                        Console.WriteLine("DEBUG((REMOVE LATER)) selection 3");
+                        DeleteMenuItem();
                         break;
                     case string i when i.Contains("4"):
                     case string j when j.Contains("exit"):
@@ -102,6 +102,30 @@ namespace Challenge1Console
             foreach(MenuItem item in Menu)
             {
                 Display(item);
+            }
+            Continue();
+        }
+        private void DeleteMenuItem()
+        {
+            Console.Clear();
+            Console.WriteLine("Please enter the menu number of the item you would like to delete:");
+            
+            string userInput = Console.ReadLine();
+            int id = int.Parse(userInput);
+
+            MenuItem menuItem = _menu.GetItembyNumber(id);
+            Console.WriteLine($"{menuItem.Name}\nIs this Correct?(y/n)");
+            userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case string x when x.Contains("y"):
+                    string formerName = menuItem.Name;
+                    _menu.DeleteMenuItem(menuItem);
+                    Console.WriteLine($"{formerName} was deleted.");
+                    break;
+                default:
+                    Console.WriteLine($"{menuItem.Name} was not deleted.");
+                    break;
             }
             Continue();
         }

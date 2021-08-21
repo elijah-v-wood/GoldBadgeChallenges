@@ -27,5 +27,16 @@ namespace Challenge1Library
             bool deleteResult = _menuItems.Remove(item);
             return deleteResult;
         }
+        public MenuItem GetItembyNumber(int id)
+        {
+            foreach(MenuItem item in _menuItems)
+            {
+                if (item.MealNumber == id)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
     }
 }
