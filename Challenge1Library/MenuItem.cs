@@ -11,12 +11,14 @@ namespace Challenge1Library
         public int MealNumber { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Ingredients { get; set; }
+        public string[] Ingredients { get; set; }
         public decimal Price { get; set; }
 
         public MenuItem() { }
-        public MenuItem(int mealNum, string name, string description, string ingredients, decimal price)
+        public MenuItem(int mealNum, string name, string description, string ingrd, decimal price)
         {
+            string[] ingredients = ingrd.Split(',');
+
             MealNumber = mealNum;
             Name = name;
             Description = description;
