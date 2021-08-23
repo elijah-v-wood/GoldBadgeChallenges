@@ -114,20 +114,30 @@ namespace Challenge1Console
             int id = int.Parse(userInput);
 
             MenuItem menuItem = _menu.GetItembyNumber(id);
-            Console.WriteLine($"{menuItem.Name}\nIs this Correct?(y/n)");
-            userInput = Console.ReadLine();
-            switch (userInput)
+            try 
             {
-                case string x when x.Contains("y"):
-                    string formerName = menuItem.Name;
-                    _menu.DeleteMenuItem(menuItem);
-                    Console.WriteLine($"{formerName} was deleted.");
-                    break;
-                default:
-                    Console.WriteLine($"{menuItem.Name} was not deleted.");
-                    break;
+                Console.WriteLine($"{menuItem.Name}\nIs this Correct?(y/n)");
+                userInput = Console.ReadLine();
+                switch (userInput)
+                {
+                    case string x when x.Contains("y"):
+                        string formerName = menuItem.Name;
+                        _menu.DeleteMenuItem(menuItem);
+                        Console.WriteLine($"{formerName} was deleted.");
+                        break;
+                    default:
+                        Console.WriteLine($"{menuItem.Name} was not deleted.");
+                        break;
+                }
+                Continue();
             }
-            Continue();
+            catch
+            {
+                Console.Clear();
+
+                Console.WriteLine("Invalid Menu Item was selected.");
+                Continue();
+            }
         }
         public void Display(MenuItem item)
         {
