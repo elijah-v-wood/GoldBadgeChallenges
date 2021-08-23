@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Challenge3Library
 {
-    public class Class1
+    public class Badge
     {
+        public int BadgeID { get; set; }
+        public string[] DoorAccess { get; set; } 
     }
 }
