@@ -58,6 +58,7 @@ namespace Challenge2Console
                         break;
                     case string f when f.Contains("3"):
                     case string g when g.Contains("new"):
+                        NewClaim();
                         break;
 
                     default:
@@ -67,6 +68,65 @@ namespace Challenge2Console
             
             }
         }
+        private void NewClaim()
+        {
+            Console.Clear();
+            string userInput;
+
+            Console.WriteLine("Please enter the following: ");
+            
+            Console.Write("ID:: ");
+            userInput = Console.ReadLine().ToLower();
+            int claimID = int.Parse(userInput);
+
+            Console.Write("Type: ");
+            userInput = Console.ReadLine().ToLower();
+            string claimType = userInput;
+
+            Console.WriteLine("Description:");
+            userInput = Console.ReadLine().ToLower();
+            string description = userInput;
+
+            Console.Write("Amount: ");
+            userInput = Console.ReadLine().Replace("$","");
+            decimal amnt = decimal.Parse(userInput);
+
+            Console.Write("Date of Incident: ");
+            string inc = Console.ReadLine();
+            DateTime incident = DateTime.Parse(inc);
+
+            Console.Write("Date of Claim: ");
+            string clm = Console.ReadLine();
+            DateTime claim = DateTime.Parse(clm);
+
+            Claim newClaim = new Claim(claimID, claimType, description, amnt, incident, claim);
+            if (newClaim.IsValid && newClaim.ClaimType!=ClaimType.NotValidType)
+            {
+                Console.WriteLine("This claim is valid!");
+                Console.WriteLine("Press any key to add claim to the queue...");
+                Console.ReadKey();
+                claimRepository.AddtoQueue(newClaim);
+            }
+            else
+            {
+                Console.WriteLine("This claim is not valid are you sure want to enter it into the queue? (y/n)");
+                userInput = Console.ReadLine();
+                if (userInput.Contains("y"))
+                {
+                    Console.WriteLine("Item will be added to queue.");
+                    claimRepository.AddtoQueue(newClaim);
+                }
+                else
+                {
+                    Console.WriteLine("Item will not be added to queue.");
+                    Continue();
+                }
+            }
+
+
+        }
+
+
         private void InvalidSelection()
         {
             Console.Clear();
