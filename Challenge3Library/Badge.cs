@@ -10,5 +10,23 @@ namespace Challenge3Library
     {
         public int BadgeID { get; set; }
         public string[] DoorAccess { get; set; } 
+
+
+
+
+
+        public Badge() { }
+        public Badge(int id, string[] access)
+        {
+            BadgeID = id;
+            DoorAccess = access;
+        }
+        public Badge(int id, string access)
+        {
+            string[] doorAccess = access.Split(',');
+
+            BadgeID = id;
+            DoorAccess = doorAccess;
+        }
     }
 }
