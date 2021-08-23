@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Challenge2Library
 {
-    public enum ClaimType { Car, Home, Theft}
+    public enum ClaimType { Car, Home, Theft, NotValidType}
     public class Claim
     {
         public int ClaimID { get; set; }
@@ -33,8 +33,33 @@ namespace Challenge2Library
         public Claim() { }
         public Claim(int id, ClaimType type, string desc, decimal amnt, DateTime incident, DateTime claim)
         {
-            ClaimID = id;
+            ClaimID = id; ;
             ClaimType = type;
+            Description = desc;
+            ClaimAmount = amnt;
+            DateOfIncident = incident;
+            DateOfClaim = claim;
+        }
+        public Claim(int id, string type, string desc, decimal amnt, DateTime incident, DateTime claim)
+        {
+            if (type.Contains("car") || type.Contains("auto"))
+            {
+                ClaimType = ClaimType.Car;
+            }
+            else if (type.Contains("home"))
+            {
+                ClaimType = ClaimType.Home;
+            }
+            else if (type.Contains("theft"))
+            {
+                ClaimType = ClaimType.Theft;
+            }
+            else
+            {
+                ClaimType = ClaimType.NotValidType;
+            }
+
+            ClaimID = id;;
             Description = desc;
             ClaimAmount = amnt;
             DateOfIncident = incident;
