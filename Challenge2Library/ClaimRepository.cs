@@ -30,13 +30,14 @@ namespace Challenge2Library
         public void SeeAllClaims()
         {
             //Kind of ugly looking, but I'll refactor it after the rest of the code is built out
-
+            Console.Clear();
             Console.WriteLine($"{"Claim ID",-10} {"Type",-10} {"Description",-10} " +
-                $"{"Amount",10} {"Incident Date",10} {"Claim Date",10} {"Valid Claim",10}");
+                $"{" ",-10}{"Amount",-10}{" ",-10} {"Incident Date",10}{" ",-10} {"Claim Date",10}" +
+                $"{" ",-10} {"Valid Claim",10}");
             foreach(Claim item in _claimQueue)
             {
                 Console.WriteLine($"{item.ClaimID,-10} {item.ClaimType,-10} {item.Description,-10} " +
-                $"{item.ClaimAmount,10} {item.DateOfIncident,10} {item.DateOfClaim,10} {item.IsValid,10}");
+                $"{" ",-10}{item.ClaimAmount,10}{" ",-10} {item.DateOfIncident,10} {item.DateOfClaim,10} {item.IsValid,10}");
             }
         }
         public void PeekQueue()

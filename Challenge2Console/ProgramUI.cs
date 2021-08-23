@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Challenge2Console
@@ -10,6 +11,7 @@ namespace Challenge2Console
     class ProgramUI
     {
         ClaimRepository claimRepository = new ClaimRepository();
+        bool Running = true;
         public void Run()
         {
             Seed();
@@ -32,7 +34,6 @@ namespace Challenge2Console
         }
         private void Menu()
         {
-            bool Running = true;
             while (Running)
             {
                 
@@ -43,7 +44,8 @@ namespace Challenge2Console
                 Console.WriteLine("Please select from the following:\n" +
                     "1. See all Claims\n" +
                     "2. Take care of next Claim\n" +
-                    "3. Enter a new Claim");
+                    "3. Enter a new Claim\n"+
+                    "4. Exit the program");
 
                 string userInput = Console.ReadLine().ToLower();
 
@@ -52,15 +54,21 @@ namespace Challenge2Console
                     case string a when a.Contains("1"):
                     case string b when b.Contains("see"):
                     case string c when c.Contains("all"):
+                        claimRepository.SeeAllClaims();
+                        Continue();
                         break;
                     case string d when d.Contains("2"):
                     case string e when e.Contains("next"):
+                        NextClaim();
                         break;
                     case string f when f.Contains("3"):
                     case string g when g.Contains("new"):
                         NewClaim();
                         break;
-
+                    case string i when i.Contains("4"):
+                    case string j when j.Contains("exit"):
+                        ExitProgram();
+                        break;
                     default:
                         InvalidSelection();
                         break;
@@ -125,7 +133,25 @@ namespace Challenge2Console
 
 
         }
+        private void NextClaim()
+        {
+            claimRepository.PeekQueue();
 
+            Console.WriteLine("\n Do you want to deal with this claim now(y/n)?");
+            string userInput = Console.ReadLine().ToLower();
+
+            if (userInput.Contains("y"))
+            {
+                Console.WriteLine("Removing Claim from the queue.");
+                claimRepository.RemoveFromQueue();
+                Continue();
+            }
+            else
+            {
+                Console.WriteLine("Understood.");
+                Continue();
+            }
+        }
 
         private void InvalidSelection()
         {
@@ -137,6 +163,13 @@ namespace Challenge2Console
         {
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
+        }
+        private void ExitProgram()
+        {
+            Console.Clear();
+            Console.WriteLine("Now exiting the program. Have a nice day");
+            Thread.Sleep(2000);
+            Running = false;
         }
     }
 }
