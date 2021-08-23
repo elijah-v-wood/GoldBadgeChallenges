@@ -10,6 +10,9 @@ namespace Challenge2Console
     {
         static void Main(string[] args)
         {
+            ProgramUI claimsPortal = new ProgramUI();
+            
+            claimsPortal.Run();
         }
     }
 }
