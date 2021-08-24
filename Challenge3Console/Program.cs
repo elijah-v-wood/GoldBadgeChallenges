@@ -10,6 +10,9 @@ namespace Challenge3Console
     {
         static void Main(string[] args)
         {
+            ProgramUI badger = new ProgramUI();
+
+            badger.Run();
         }
     }
 }
