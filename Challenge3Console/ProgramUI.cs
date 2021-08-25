@@ -126,6 +126,8 @@ namespace Challenge3Console
         }
         private void UpdateBadge()
         {
+            Console.Clear();
+
             Console.WriteLine("What is the badge number to update?");
             int input = int.Parse((Console.ReadLine()));
             try
@@ -161,6 +163,7 @@ namespace Challenge3Console
             catch
             {
                 Console.WriteLine("Failed to find badge");
+                Continue();
             }
         }
         private void NewAccess(Badge badge, string input)
