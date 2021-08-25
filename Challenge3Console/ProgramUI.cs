@@ -59,7 +59,7 @@ namespace Challenge3Console
                         break;
                     case string d when d.Contains("2"):
                     case string e when e.Contains("edit"):
-
+                        UpdateBadge();
                         break;
                     case string f when f.Contains("3"):
                     case string g when g.Contains("list"):
@@ -123,6 +123,45 @@ namespace Challenge3Console
             }
             Continue();
             
+        }
+        private void UpdateBadge()
+        {
+            Console.WriteLine("What is the badge number to update?");
+            int input = int.Parse((Console.ReadLine()));
+            try
+            {
+                Console.WriteLine($"{BadgeDirectory._badgeDictionary[input].BadgeID} has access to{BadgeDirectory._badgeDictionary[input].DoorAccess}\n"+
+                    "What would you like to do?\n"+
+                    "1. Remove a door\n" +
+                    "2. Add a door");
+                string userInput=Console.ReadLine().ToLower();
+                if (userInput.Contains("1") || userInput.Contains("remove"))
+                {
+                    Console.WriteLine("Which door would you like to remove?\n" +
+                        $"{BadgeDirectory._badgeDictionary[input].DoorAccess}");
+
+                    userInput = Console.ReadLine().ToUpper();
+                    BadgeDirectory._badgeDictionary[input].DoorAccess.Replace(userInput, "");
+
+                    Console.WriteLine($"{BadgeDirectory._badgeDictionary[input].BadgeID} has access to" +
+                        $"{BadgeDirectory._badgeDictionary[input].DoorAccess}");
+                    Continue();
+                }
+                else if (userInput.Contains("2") || userInput.Contains("add"))
+                {
+                    Console.WriteLine("What door would you like to add?");
+                    userInput = Console.ReadLine();
+
+                    NewAccess(BadgeDirectory._badgeDictionary[input], userInput);
+
+                    Console.WriteLine($"{BadgeDirectory._badgeDictionary[input].BadgeID} has access to" +
+                        $"{BadgeDirectory._badgeDictionary[input].DoorAccess}");
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Failed to find badge");
+            }
         }
         private void NewAccess(Badge badge, string input)
         {
