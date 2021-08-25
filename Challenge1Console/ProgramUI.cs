@@ -66,7 +66,6 @@ namespace Challenge1Console
             Console.Clear();
             Console.WriteLine("Add New Item Menu:\n");
 
-
             Console.Write("Menu Number: ");
             string userInput = Console.ReadLine();
             var mealID = int.Parse(userInput);
