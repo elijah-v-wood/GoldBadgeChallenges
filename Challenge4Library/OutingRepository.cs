@@ -16,6 +16,14 @@ namespace Challenge4Library
             return _outingRepo;
         }
 
+        public bool AddOuting(Outing outing)
+        {
+            int startingCount = _outingRepo.Count;
+            _outingRepo.Add(outing);
+            bool wasAdded = _outingRepo.Count > startingCount;
+            return wasAdded;
+        }
+
         public List<Outing> AllOutingsByType(EventType Event)
         {
             List<Outing> OutingByType = new List<Outing>();
