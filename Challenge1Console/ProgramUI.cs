@@ -112,10 +112,72 @@ namespace Challenge1Console
             string userInput = Console.ReadLine();
             int id = int.Parse(userInput);
 
-            MenuItem menuItem = _menu.GetItembyNumber(id);
-            try 
+            List<MenuItem> Items = _menu.GetItemsById(id);
+            Dictionary<int, MenuItem> Affixes = new Dictionary<int, MenuItem>();
+            if (Items.Count > 1)
             {
-                Console.WriteLine($"{menuItem.Name}\nIs this Correct?(y/n)");
+                int affix = 1;
+                foreach(MenuItem item in Items)
+                {
+                    Console.WriteLine($"{affix}. {item.Name}");
+                    Affixes.Add(affix, item);
+                    affix++;
+                }
+                Console.WriteLine("please enter the number of the item you would like to delete:");
+                string userinput = Console.ReadLine().ToLower();
+                try
+                {
+                    int input = int.Parse(userinput);
+                    string formerName = Affixes[input].Name;
+                   bool deleted= _menu.DeleteMenuItem(Affixes[input]);
+
+                    if (deleted)
+                    {
+                        Console.WriteLine($"{formerName} was deleted!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Failed to delete Item.");
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Failed to delete any item");
+                }
+                Continue();
+            }
+            else
+            {
+                foreach(MenuItem item in Items)
+                {
+                    Console.WriteLine($"{item.Name}\nIs this Correct?(y/n)");
+                    userInput = Console.ReadLine().ToLower();
+                    if (userInput.Contains("y"))
+                    {
+                        try
+                        {
+                            string formerName = item.Name;
+                            bool deleted = _menu.DeleteMenuItem(item);
+                            if (deleted)
+                            {
+                                Console.WriteLine($"{formerName} was deleted!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Failed to delete Item.");
+                            }
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Failed to delete item.");
+                        }
+                    }
+                }
+                Continue();
+            }
+            /*try 
+            {
+                
                 userInput = Console.ReadLine();
                 switch (userInput)
                 {
@@ -136,7 +198,7 @@ namespace Challenge1Console
 
                 Console.WriteLine("Invalid Menu Item was selected.");
                 Continue();
-            }
+            }*/
         }
         public void Display(MenuItem item)
         {
