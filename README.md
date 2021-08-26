@@ -12,3 +12,6 @@ Below is the list of challenges I have worked on and some explanations for choic
 
 ## Challenge 3
 **Badges**
+
+## Challenge 4
+**Outings**
