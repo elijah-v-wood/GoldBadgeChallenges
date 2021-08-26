@@ -19,7 +19,7 @@ Below is the list of challenges I have worked on and some explanations for choic
 - I hated this.
 - I think spent the most time with this code, but most of that time was giving myself a concussion and my wall a head-shaped dent.
 - I didn't know how to work with dictionaries before this and I'm not sure I have the best understanding after either. Method construction was difficult for me. It all got easier once I got to the Console, but it was very hard to plan ahead since I felt like I had no idea what I was doing.
-- I also couldn't figure out if I should make a List of doors or make a string that acts like a list of doors. I decided on the string because it was less work and could theoretically be used to open doors if the door was performing a `.Contains(doorname)` on the string. I think missing the forrest as I thought about it, but knowing how it would apply to a real world app helps me think about how to code it.
+- I also couldn't figure out if I should make a List of doors or make a string that acts like a list of doors. I decided on the string because it was less work and could theoretically be used to open doors if the door was performing a `.Contains(doorname)` on the string. I think I missed the forest as I thought about it, but knowing how it would apply to a real world app helps me think about how to code it.
 -again no way to ensure any badge ID is unique, but someday I'll figure out how to stop that from giving me compile time errors.
 
 ## Challenge 4
