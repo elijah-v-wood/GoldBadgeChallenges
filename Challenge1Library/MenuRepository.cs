@@ -38,5 +38,17 @@ namespace Challenge1Library
             }
             return null;
         }
+        public List<MenuItem> GetItemsById(int id)
+        {
+            List<MenuItem> IdMenu = new List<MenuItem>();
+            foreach(MenuItem item in _menuItems)
+            {
+                if(item.MealNumber== id)
+                {
+                    IdMenu.Add(item);
+                }
+            }
+            return IdMenu;
+        }
     }
 }
