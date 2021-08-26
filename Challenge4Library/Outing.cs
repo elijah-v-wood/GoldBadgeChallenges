@@ -29,6 +29,14 @@ namespace Challenge4Library
                 return EventCost + CostOfAttendees;
             }
         }
+        public Outing() { }
+        public Outing(EventType type, decimal eventCost, int attendees, decimal perHead)
+        {
+            Event = type;
+            EventCost = eventCost;
+            Attendees = attendees;
+            CostPerHead = perHead;
+        }
 
 
 
