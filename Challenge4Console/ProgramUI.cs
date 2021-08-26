@@ -107,7 +107,8 @@ namespace Challenge4Console
                 "2. Golf\n" +
                 "3. Bowling\n" +
                 "4. Amusement Parks\n" +
-                "5. Concerts\n");
+                "5. Concerts\n" +
+                "6. Unassigned Events\n");
             string userInput = Console.ReadLine().ToLower();
 
             switch (userInput)
@@ -140,6 +141,16 @@ namespace Challenge4Console
                 case string j when j.Contains("concert"):
                     decimal concertCost = outingRepository.GrandTotalByType(EventType.Concert);
                     Console.WriteLine($"The Total cost of Concerts are: ${concertCost}");
+                    Continue();
+                    break;
+                case string k when k.Contains("6"):
+                case string l when l.Contains("unassign"):
+                    decimal noTypeCost = outingRepository.GrandTotalByType(EventType.NoType);
+                    Console.WriteLine($"The total cost of unassigned events are: ${noTypeCost}");
+                    Continue();
+                    break;
+                default:
+                    Console.WriteLine("No selection has been made.");
                     Continue();
                     break;
             }
