@@ -10,6 +10,8 @@ namespace Challenge4Console
     {
         static void Main(string[] args)
         {
+            ProgramUI outingCalculator = new ProgramUI();
+            outingCalculator.Run();
         }
     }
 }

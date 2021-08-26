@@ -8,10 +8,10 @@ namespace Challenge4Tests
     public class UnitTest1
     {
         OutingRepository outingRepository = new OutingRepository();
-        Outing out1 = new Outing(EventType.Golf, 2000m, 15, 50m);
-        Outing out2 = new Outing(EventType.Golf, 1800m, 25, 50m);
-        Outing out3 = new Outing(EventType.AmusementPark, 3000m, 60, 110m);
-        Outing out4 = new Outing(EventType.Bowling, 500m, 30, 20m);
+        Outing out1 = new Outing(EventType.Golf, 2000m, 15, 50m, new DateTime(2018,04,23));
+        Outing out2 = new Outing(EventType.Golf, 1800m, 25, 50m, new DateTime(2019,04,23));
+        Outing out3 = new Outing(EventType.AmusementPark, 3000m, 60, 110m, new DateTime(2021,05,22));
+        Outing out4 = new Outing(EventType.Bowling, 500m, 30, 20m, new DateTime(2020,08,13));
 
 
         [TestMethod]
