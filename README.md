@@ -7,7 +7,8 @@ Below is the list of challenges I have worked on and some explanations for choic
 ## Challenge 1
 **Cafe**
 - It feels a little presumptious to say this challenge was easy given the several mistakes I made in the process, but I never felt like I was doing anything new.
-- I have yet to figure out how to compile a code that won't let you proceed until you give a proper value for the ID(menu number). So not only is it possible to give two items the same menu number, but this leads to an issue where deleting a menu item is not up to you if there are multiple versions of it. If the console lets you choose what to delete, then I fixed it but forgot to update the Readme.
+- I have yet to figure out how to compile a code that won't let you proceed until you give a proper value for the ID(menu number). So not only is it possible to give two items the same menu number, but this leads to an issue where deleting a menu item is not up to you if there are multiple versions of it.
+- The fix for this was quite an accomplishment for me, considering how much I dislike dictionaries. By creating a dictionary that takes in a `int` I can assign affixes to a list of menuItems that are then added to a dictionary. This will allow a quick way for the user to select an item to delete that doesn't rely on the items' inherit properties. I can then use the kvp to delete my item.
 
 ## Challenge 2
 **Claims**
@@ -19,6 +20,7 @@ Below is the list of challenges I have worked on and some explanations for choic
 - I hated this.
 - I think spent the most time with this code, but most of that time was giving myself a concussion and my wall a head-shaped dent.
 - I didn't know how to work with dictionaries before this and I'm not sure I have the best understanding after either. Method construction was difficult for me. It all got easier once I got to the Console, but it was very hard to plan ahead since I felt like I had no idea what I was doing.
+- **Addendum:** After a refactor of the delete method in ProgramUI for Challenge 1. I'm a little more confident on how to use a dictionary, though I might no bee keen on building systems with it.
 - I also couldn't figure out if I should make a List of doors or make a string that acts like a list of doors. I decided on the string because it was less work and could theoretically be used to open doors if the door was performing a `.Contains(doorname)` on the string. I think I missed the forest as I thought about it, but knowing how it would apply to a real world app helps me think about how to code it.
 -again no way to ensure any badge ID is unique, but someday I'll figure out how to stop that from giving me compile time errors.
 
